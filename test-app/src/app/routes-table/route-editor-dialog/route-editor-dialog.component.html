@@ -1,0 +1,60 @@
+<div fxLayout="column">
+    <div class="dialog-title color-style">
+        <h2 style="font-weight: inherit;">Параметры статического маршрута</h2>
+    </div>
+    <div fxLayout="column" [formGroup]="model" style="width: 500px; margin: 10px 15px 5px 20px;">
+        <div fxLayout="row">
+            <span class="input-title" fxFlex>Адрес сети назначения</span>
+            <div fxLayout="column" class="input-field">
+                <mat-form-field fxFlex="nogrow" style="width: 300px;">
+                    <input matInput formControlName="address">
+                </mat-form-field>
+                <mat-error *ngIf="this.address.invalid && this.address.touched">
+                    <span class="error-message">Укажите выражение в формате IPv4</span>
+                </mat-error>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <span class="input-title" fxFlex>Маска подсети</span>
+                <div fxLayout="column" class="input-field">
+                    <mat-form-field fxFlex="nogrow" style="width: 300px; ">
+                        <input matInput formControlName="mask">
+                    </mat-form-field>
+                    <mat-error *ngIf="this.mask.invalid && this.mask.touched">
+                        <span class="error-message">Укажите выражение в формате IPv4</span>
+                    </mat-error>
+                </div>
+        </div>
+        <div fxLayout="row">
+            <span class="input-title" fxFlex>Адрес шлюза</span>
+            <div fxLayout="column" class="input-field">
+                <mat-form-field fxFlex="nogrow" style="width: 300px; ">
+                    <input matInput formControlName="gateway">
+                </mat-form-field>
+                <mat-error *ngIf="this.gateway.invalid && this.gateway.touched">
+                    <span class="error-message">Укажите выражение в формате IPv4</span>
+                </mat-error>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <span class="input-title" fxFlex>Интерфейс</span>
+            <div fxLayout="column" class="input-field">
+                <mat-form-field fxFlex="nogrow" style="width: 300px; ">
+                    <input matInput formControlName="interface">
+                </mat-form-field>
+                <mat-error *ngIf="this.interface.invalid && this.interface.touched">
+                    <span class="error-message">Оязательно к заполнению</span>
+                </mat-error>
+            </div>
+        </div>
+    </div>
+
+    <div fxFlex="40px" fxLayoutGap="10px" class="button-section">
+        <button mat-stroked-button mat-dialog-close color="primary" (click)="deleteRoute()">
+            Удалить маршрут
+        </button>
+        <button mat-stroked-button mat-dialog-close color="primary" (click)="updateRoute()">
+            Изменить
+        </button>
+    </div>
+</div>

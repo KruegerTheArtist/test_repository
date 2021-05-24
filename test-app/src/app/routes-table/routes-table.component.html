@@ -1,0 +1,60 @@
+<div fxLayout="column" class="routed-component" fxLayoutGap="10px">
+    <table fxFlex class="route-table">
+        <thead>
+            <tr>
+                <th>
+                    <span class="table-column-title">Адрес назначения</span>
+                    <ng-container [ngSwitch]="sortedBy.sortType && sortedBy.sortBy === SortByProperty.address">
+                        <mat-icon class="icon-button" *ngSwitchCase="SortType.asc"
+                            (click)="sortBy(SortByProperty.address)">arrow_drop_down</mat-icon>
+                        <mat-icon class="icon-button" *ngSwitchCase="SortType.desc"
+                            (click)="sortBy(SortByProperty.address)">arrow_drop_up</mat-icon>
+                    </ng-container>
+                </th>
+                <th>
+                    <span class="table-column-title">Шлюз</span>
+                    <ng-container [ngSwitch]="sortedBy.sortType  && sortedBy.sortBy === SortByProperty.gateway">
+                        <mat-icon class="icon-button" *ngSwitchCase="SortType.asc"
+                            (click)="sortBy(SortByProperty.gateway)">arrow_drop_down</mat-icon>
+                        <mat-icon class="icon-button" *ngSwitchCase="SortType.desc"
+                            (click)="sortBy(SortByProperty.gateway)">arrow_drop_up</mat-icon>
+                    </ng-container>
+                </th>
+                <th>
+                    <span class="table-column-title">Интерфейс</span>
+                    <ng-container [ngSwitch]="sortedBy.sortType  && sortedBy.sortBy === SortByProperty.interface">
+                        <mat-icon class="icon-button" *ngSwitchCase="SortType.asc"
+                            (click)="sortBy(SortByProperty.interface)">arrow_drop_down</mat-icon>
+                        <mat-icon class="icon-button" *ngSwitchCase="SortType.desc"
+                            (click)="sortBy(SortByProperty.interface)">arrow_drop_up</mat-icon>
+                    </ng-container>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let route of routes" >
+                <tr (click)="openEditWindow(route)">
+                    <td>{{route?.address}}</td>
+                    <td>{{route?.gateway}}</td>
+                    <td>{{route?.interface}}</td>
+                    <td>
+                        <mat-icon class="hidden-icon" mat-icon-button [matMenuTriggerFor]="menu"
+                            (click)="selectedElement=route">more_vert</mat-icon>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openEditWindowCommand()">
+            <mat-icon>change_circle</mat-icon>
+            <span>Изменить</span>
+        </button>
+        <button mat-menu-item (click)="deleteRouteCommand()">
+            <mat-icon>delete</mat-icon>
+            <span>Удалить</span>
+        </button>
+    </mat-menu>
+</div>

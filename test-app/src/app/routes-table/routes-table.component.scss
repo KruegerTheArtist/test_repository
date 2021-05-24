@@ -1,0 +1,62 @@
+.route-table {
+    display: table;
+    width: 100%;
+    padding-right: 5px;
+    border-spacing: 0;
+    border-collapse: separate;
+    min-width: max-content;
+    background: white;
+
+    thead tr {
+        height: 40px;
+        background-color: rgba(128,128,128, .2);
+    } th {
+        border-bottom: solid 0.5px;
+    }
+
+    tbody tr {
+        height: 30px;
+    } th {
+        text-align: left;
+    }
+
+    tbody tr:hover {
+        cursor: pointer;
+        background-color: rgba(128,128,128, .5) !important;
+        
+.hidden-icon {
+    opacity: 1;
+}
+
+    }
+    // thead tr th {
+    //     font-size: 12px;
+    //     font-weight: 500;
+    //     text-align: left;
+    //     color: var(--color-text-light);
+    //     background: white;
+    //     border-bottom: 1px solid var(--color-border);
+    //     height: 36px;
+    //     top: 0px;
+    //     position: sticky;
+    //     z-index: 100;
+    //     padding: 0px 5px 0px 10px;
+    // }
+
+    // tbody tr td {
+    //     font-size: 13px;
+    //     height: 40px;
+    //     border-bottom: 1px solid var(--color-border);
+    //     padding: 0px 5px 0px 10px;
+    // }
+}
+
+.table-column-title {
+    vertical-align: super;
+}
+
+.hidden-icon {
+    opacity: 0;
+    margin-top: 2px;
+    float: right;
+}
